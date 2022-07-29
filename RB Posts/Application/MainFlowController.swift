@@ -21,7 +21,7 @@ final class MainFlowController: FlowController {
     
     override func setup() -> UIViewController {
         let main = UITabBarController()
-        main.viewControllers = [setupFirstTab()]
+        main.viewControllers = [setupFirstTab(), setupAddTab()]
         return main
     }
     
@@ -36,6 +36,19 @@ final class MainFlowController: FlowController {
         let detailRootVC = startChildFlow(detailFC)
         detailNC.viewControllers = [detailRootVC]
         return detailNC
+    }
+    
+    private func setupAddTab() -> UINavigationController {
+        let addNC = BaseNavigationController()
+        addNC.tabBarItem = UITabBarItem(
+            title: "Add Post",
+            image: UIImage(systemName: "note.text.badge.plus"),
+            tag: MainTab.detail.rawValue
+        )
+        let addFC = AddFlowController(navigationController: addNC)
+        let addRootVC = startChildFlow(addFC)
+        addNC.viewControllers = [addRootVC]
+        return addNC
     }
     
     func presentOnboarding() {
