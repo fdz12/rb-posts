@@ -9,5 +9,6 @@ import Resolver
 
 public extension Resolver {
     static func registerUseCases() {
+        register { GetPostsUseCaseImpl(postsRepository: resolve()) as GetPostsUseCase }
     }
 }

@@ -45,6 +45,12 @@
 		88BE88A72893C6D9002D531A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BE886D2893C6D9002D531A /* SceneDelegate.swift */; };
 		88BE88A82893C6D9002D531A /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BE886E2893C6D9002D531A /* AppFlowController.swift */; };
 		88BE88AB2893C751002D531A /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 88BE88AA2893C751002D531A /* Resolver */; };
+		88BE88AF2893D84D002D531A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BE88AE2893D84D002D531A /* Post.swift */; };
+		88BE88B12893D8D6002D531A /* NETPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BE88B02893D8D6002D531A /* NETPost.swift */; };
+		88BE88B32893DB50002D531A /* PostsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BE88B22893DB50002D531A /* PostsAPI.swift */; };
+		88BE88B52893DCA8002D531A /* PostsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BE88B42893DCA8002D531A /* PostsRepository.swift */; };
+		88BE88B72893E768002D531A /* PostsRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BE88B62893E768002D531A /* PostsRepositoryImpl.swift */; };
+		88BE88B92893E91E002D531A /* GetPostsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BE88B82893E91E002D531A /* GetPostsUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +93,12 @@
 		88BE886C2893C6D9002D531A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88BE886D2893C6D9002D531A /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		88BE886E2893C6D9002D531A /* AppFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFlowController.swift; sourceTree = "<group>"; };
+		88BE88AE2893D84D002D531A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		88BE88B02893D8D6002D531A /* NETPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NETPost.swift; sourceTree = "<group>"; };
+		88BE88B22893DB50002D531A /* PostsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsAPI.swift; sourceTree = "<group>"; };
+		88BE88B42893DCA8002D531A /* PostsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsRepository.swift; sourceTree = "<group>"; };
+		88BE88B62893E768002D531A /* PostsRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsRepositoryImpl.swift; sourceTree = "<group>"; };
+		88BE88B82893E91E002D531A /* GetPostsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPostsUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +154,7 @@
 		88BE881D2893C6D9002D531A /* NetworkEndpoints */ = {
 			isa = PBXGroup;
 			children = (
+				88BE88B22893DB50002D531A /* PostsAPI.swift */,
 			);
 			path = NetworkEndpoints;
 			sourceTree = "<group>";
@@ -193,6 +206,7 @@
 		88BE88322893C6D9002D531A /* NetworkModels */ = {
 			isa = PBXGroup;
 			children = (
+				88BE88B02893D8D6002D531A /* NETPost.swift */,
 			);
 			path = NetworkModels;
 			sourceTree = "<group>";
@@ -200,6 +214,7 @@
 		88BE88352893C6D9002D531A /* RepositoriesImpl */ = {
 			isa = PBXGroup;
 			children = (
+				88BE88B62893E768002D531A /* PostsRepositoryImpl.swift */,
 			);
 			path = RepositoriesImpl;
 			sourceTree = "<group>";
@@ -219,6 +234,7 @@
 		88BE88382893C6D9002D531A /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				88BE88B42893DCA8002D531A /* PostsRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -226,6 +242,7 @@
 		88BE883A2893C6D9002D531A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				88BE88AE2893D84D002D531A /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -250,6 +267,7 @@
 		88BE88442893C6D9002D531A /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				88BE88B82893E91E002D531A /* GetPostsUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -406,6 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88BE88B32893DB50002D531A /* PostsAPI.swift in Sources */,
 				88BE88992893C6D9002D531A /* BaseNavigationController.swift in Sources */,
 				88BE88A52893C6D9002D531A /* UseCase+Injection.swift in Sources */,
 				88BE88972893C6D9002D531A /* View+Extensions.swift in Sources */,
@@ -415,16 +434,21 @@
 				88BE88732893C6D9002D531A /* BodyEnconding.swift in Sources */,
 				88BE88912893C6D9002D531A /* DetailViewModel.swift in Sources */,
 				88BE88952893C6D9002D531A /* UIViewController+Extensions.swift in Sources */,
+				88BE88B12893D8D6002D531A /* NETPost.swift in Sources */,
 				88BE887B2893C6D9002D531A /* NetworkProviderError.swift in Sources */,
 				88BE88752893C6D9002D531A /* ParameterEncoding.swift in Sources */,
 				88BE88962893C6D9002D531A /* AlertData+SwiftUI.swift in Sources */,
 				88BE887A2893C6D9002D531A /* SystemNetworkProvider.swift in Sources */,
 				88BE888F2893C6D9002D531A /* DetailFlowController.swift in Sources */,
 				88BE88A82893C6D9002D531A /* AppFlowController.swift in Sources */,
+				88BE88AF2893D84D002D531A /* Post.swift in Sources */,
+				88BE88B52893DCA8002D531A /* PostsRepository.swift in Sources */,
 				88BE88A42893C6D9002D531A /* Repositories+Injection.swift in Sources */,
 				88BE88A32893C6D9002D531A /* Providers+Injection.swift in Sources */,
 				88BE88A12893C6D9002D531A /* MainFlowController.swift in Sources */,
 				88BE88762893C6D9002D531A /* URLEncoding.swift in Sources */,
+				88BE88B72893E768002D531A /* PostsRepositoryImpl.swift in Sources */,
+				88BE88B92893E91E002D531A /* GetPostsUseCase.swift in Sources */,
 				88BE88862893C6D9002D531A /* Data+Extensions.swift in Sources */,
 				88BE88942893C6D9002D531A /* ViewModel.swift in Sources */,
 				88BE88932893C6D9002D531A /* BaseViewModel.swift in Sources */,

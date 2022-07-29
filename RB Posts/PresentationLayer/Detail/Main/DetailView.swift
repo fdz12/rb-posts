@@ -16,24 +16,25 @@ struct DetailView: View {
     }
     
     var body: some View {
+        if (viewModel.state.posts.isEmpty) {
+            HStack {
+                ProgressView().padding(.trailing, 5)
+                Text("Loading...")
+            }
+        }
         List {
-            VStack (alignment: .leading) {
-                Text("Title")
-                    .font(.headline)
-                Text("Subtitle")
-                    .font(.subheadline)
-            }
-            VStack (alignment: .leading) {
-                Text("Title")
-                    .font(.headline)
-                Text("Subtitle")
-                    .font(.subheadline)
-            }
-            VStack (alignment: .leading) {
-                Text("Title")
-                    .font(.headline)
-                Text("Subtitle")
-                    .font(.subheadline)
+            ForEach(viewModel.state.posts, id: \.self) { post in
+                VStack (alignment: .leading) {
+                    Text(post?.title ?? "")
+                        .font(.headline)
+                        .truncationMode(.tail)
+                        .lineLimit(1)
+                    Text(post?.body ?? "")
+                        .font(.subheadline)
+                        .truncationMode(.tail)
+                        .lineLimit(3)
+                }
+                
             }
         }
         .lifecycle(viewModel)
