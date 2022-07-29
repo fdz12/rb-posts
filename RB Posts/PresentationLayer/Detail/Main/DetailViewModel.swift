@@ -11,6 +11,8 @@ import SwiftUI
 final class DetailViewModel: BaseViewModel, ViewModel, ObservableObject {
     
     private weak var flowController: FlowController?
+    
+    @Injected private(set) var getPostsUseCase : GetPostsUseCase
         
     init(flowController: FlowController?) {
         self.flowController = flowController
@@ -19,17 +21,25 @@ final class DetailViewModel: BaseViewModel, ViewModel, ObservableObject {
     
     override func onAppear() {
         super.onAppear()
+        executeTask(Task { await loadPosts() })
     }
     
     @Published private(set) var state: State = State()
 
     struct State {
-        let text = "Hello world!"
+        let text = "Posts"
+        var posts: [Post?] = []
     }
     
     enum Intent {
     }
     
     func onIntent(_ intent: Intent) {
+    }
+    
+    private func loadPosts() async {
+        do {
+            state.posts = try await getPostsUseCase.execute()
+        } catch {}
     }
 }

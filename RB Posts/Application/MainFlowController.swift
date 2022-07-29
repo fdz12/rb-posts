@@ -28,8 +28,8 @@ final class MainFlowController: FlowController {
     private func setupFirstTab() -> UINavigationController {
         let detailNC = BaseNavigationController()
         detailNC.tabBarItem = UITabBarItem(
-            title: "Hello",
-            image: UIImage(systemName: "person.fill"),
+            title: "Posts",
+            image: UIImage(systemName: "note.text"),
             tag: MainTab.detail.rawValue
         )
         let detailFC = DetailFlowController(navigationController: detailNC)

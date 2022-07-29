@@ -9,5 +9,6 @@ import Resolver
 
 public extension Resolver {
     static func registerRepositories() {
+        register { PostsRepositoryImpl(networkProvider: resolve()) as PostsRepository }
     }
 }
