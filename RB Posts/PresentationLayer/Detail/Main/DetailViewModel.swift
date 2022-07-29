@@ -40,6 +40,8 @@ final class DetailViewModel: BaseViewModel, ViewModel, ObservableObject {
     private func loadPosts() async {
         do {
             state.posts = try await getPostsUseCase.execute()
-        } catch {}
+        } catch {
+            state.posts = [Post(title: "List of posts failed to load", body: "Check your internet connection")]
+        }
     }
 }

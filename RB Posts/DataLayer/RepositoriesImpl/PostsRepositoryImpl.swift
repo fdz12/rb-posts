@@ -24,7 +24,13 @@ public struct PostsRepositoryImpl: PostsRepository {
     }
     
     public func add(post: Post) async throws -> Post? {
-        return Post(title: "", body: "")
+        do {
+            let dataNetwork = try post.networkModel.encode()
+            _ = try await network.request(PostsAPI.add(dataNetwork), withInterceptor: false)
+            return post
+        } catch {
+            throw APIError.api(.failed)
+        }
     }
 }
 

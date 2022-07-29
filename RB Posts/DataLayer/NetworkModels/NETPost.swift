@@ -5,7 +5,7 @@
 //  Created by Denis Žuffa on 29/07/2022.
 //
 
-struct NETPost: Decodable {
+struct NETPost: Encodable, Decodable {
     let userId: Int
     let id: Int
     let title: String
