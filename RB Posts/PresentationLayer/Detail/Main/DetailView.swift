@@ -16,11 +16,28 @@ struct DetailView: View {
     }
     
     var body: some View {
-        VStack {
-            Text(viewModel.state.text)
-                .font(.title)
-                .padding(.bottom, 5)
-        }.lifecycle(viewModel)
+        List {
+            VStack (alignment: .leading) {
+                Text("Title")
+                    .font(.headline)
+                Text("Subtitle")
+                    .font(.subheadline)
+            }
+            VStack (alignment: .leading) {
+                Text("Title")
+                    .font(.headline)
+                Text("Subtitle")
+                    .font(.subheadline)
+            }
+            VStack (alignment: .leading) {
+                Text("Title")
+                    .font(.headline)
+                Text("Subtitle")
+                    .font(.subheadline)
+            }
+        }
+        .lifecycle(viewModel)
+        .navigationTitle(viewModel.state.text)
     }
 }
 
