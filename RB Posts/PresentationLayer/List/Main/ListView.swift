@@ -1,5 +1,5 @@
 //
-//  DetailView.swift
+//  ListView.swift
 //  RB Posts
 //
 //  Created by Denis Žuffa on 29/07/2022.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct DetailView: View {
+struct ListView: View {
     
-    @ObservedObject private var viewModel: DetailViewModel
+    @ObservedObject private var viewModel: ListViewModel
     
-    init(viewModel: DetailViewModel) {
+    init(viewModel: ListViewModel) {
         self.viewModel = viewModel
     }
     
@@ -42,9 +42,9 @@ struct DetailView: View {
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
+struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        let vm = DetailViewModel(flowController: nil)
-        DetailView(viewModel: vm)
+        let vm = ListViewModel(flowController: nil)
+        ListView(viewModel: vm)
     }
 }
