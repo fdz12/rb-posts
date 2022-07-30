@@ -24,17 +24,27 @@ struct ListView: View {
         }
         List {
             ForEach(viewModel.state.posts, id: \.self) { post in
-                VStack (alignment: .leading) {
-                    Text(post?.title ?? "")
-                        .font(.headline)
-                        .truncationMode(.tail)
-                        .lineLimit(1)
-                    Text(post?.body ?? "")
-                        .font(.subheadline)
-                        .truncationMode(.tail)
-                        .lineLimit(3)
+                VStack {
+                    HStack {
+                        VStack (alignment: .leading) {
+                            Text(post?.title ?? "")
+                                .font(.headline)
+                                .truncationMode(.tail)
+                                .lineLimit(1)
+                            Text(post?.body ?? "")
+                                .font(.subheadline)
+                                .truncationMode(.tail)
+                                .lineLimit(3)
+                        }
+                        Spacer()
+                        Image(systemName: "chevron.forward")
+                    }
                 }
-                
+                .onTapGesture {
+                    viewModel.onIntent(
+                        .openPostDetail(post: post ?? Post(title: "No Title", body: "No Body"))
+                    )
+                }
             }
         }
         .lifecycle(viewModel)
