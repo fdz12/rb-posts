@@ -14,6 +14,8 @@ public struct ValidateTitleUseCaseImpl: ValidateTitleUseCase {
     public init() {}
     
     public func execute(_ title: String) throws {
+        print(title.isEmpty)
+        print(title)
         if title.isEmpty {
             throw ValidationError.title(.isEmpty)
         }
