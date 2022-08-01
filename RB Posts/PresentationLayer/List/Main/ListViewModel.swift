@@ -1,5 +1,5 @@
 //
-//  DetailViewModel.swift
+//  ListViewModel.swift
 //  RB Posts
 //
 //  Created by Denis Žuffa on 29/07/2022.
@@ -8,7 +8,7 @@
 import Resolver
 import SwiftUI
 
-final class DetailViewModel: BaseViewModel, ViewModel, ObservableObject {
+final class ListViewModel: BaseViewModel, ViewModel, ObservableObject {
     
     private weak var flowController: FlowController?
     
@@ -32,9 +32,20 @@ final class DetailViewModel: BaseViewModel, ViewModel, ObservableObject {
     }
     
     enum Intent {
+        case openPostDetail(post: Post)
     }
     
     func onIntent(_ intent: Intent) {
+        executeTask(Task {
+            switch intent {
+            case let .openPostDetail(post):
+                openPostDetail(post)
+            }
+        })
+    }
+    
+    private func openPostDetail(_ post: Post) {
+        flowController?.handleFlow(ListFlow.list(.showDetail(post)))
     }
     
     private func loadPosts() async {

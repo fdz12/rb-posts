@@ -26,9 +26,9 @@ public struct AddPostUseCaseImpl: AddPostUseCase {
     }
     
     public func execute(_ data: Post) async throws {
+        try validateTitleUseCase.execute(data.title)
+        try validateBodyUseCase.execute(data.body)
         do {
-            try validateTitleUseCase.execute(data.title)
-            try validateBodyUseCase.execute(data.body)
             _ = try await postsRepository.add(post: data)
         } catch {
             throw APIError.api(.failed)

@@ -8,7 +8,7 @@
 import UIKit
 
 enum MainTab: Int {
-    case detail = 1
+    case list = 1
 }
 
 protocol MainFlowControllerDelegate: AnyObject {
@@ -26,16 +26,16 @@ final class MainFlowController: FlowController {
     }
     
     private func setupFirstTab() -> UINavigationController {
-        let detailNC = BaseNavigationController()
-        detailNC.tabBarItem = UITabBarItem(
+        let listNC = BaseNavigationController()
+        listNC.tabBarItem = UITabBarItem(
             title: "Posts",
             image: UIImage(systemName: "note.text"),
-            tag: MainTab.detail.rawValue
+            tag: MainTab.list.rawValue
         )
-        let detailFC = DetailFlowController(navigationController: detailNC)
-        let detailRootVC = startChildFlow(detailFC)
-        detailNC.viewControllers = [detailRootVC]
-        return detailNC
+        let listFC = ListFlowController(navigationController: listNC)
+        let listRootVC = startChildFlow(listFC)
+        listNC.viewControllers = [listRootVC]
+        return listNC
     }
     
     private func setupAddTab() -> UINavigationController {
@@ -43,7 +43,7 @@ final class MainFlowController: FlowController {
         addNC.tabBarItem = UITabBarItem(
             title: "Add Post",
             image: UIImage(systemName: "note.text.badge.plus"),
-            tag: MainTab.detail.rawValue
+            tag: MainTab.list.rawValue
         )
         let addFC = AddFlowController(navigationController: addNC)
         let addRootVC = startChildFlow(addFC)
