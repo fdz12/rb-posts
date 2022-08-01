@@ -8,7 +8,7 @@
 import UIKit
 
 enum MainTab: Int {
-    case detail = 1
+    case list = 1
 }
 
 protocol MainFlowControllerDelegate: AnyObject {
@@ -21,21 +21,34 @@ final class MainFlowController: FlowController {
     
     override func setup() -> UIViewController {
         let main = UITabBarController()
-        main.viewControllers = [setupFirstTab()]
+        main.viewControllers = [setupFirstTab(), setupAddTab()]
         return main
     }
     
     private func setupFirstTab() -> UINavigationController {
-        let detailNC = BaseNavigationController()
-        detailNC.tabBarItem = UITabBarItem(
-            title: "Hello",
-            image: UIImage(systemName: "person.fill"),
-            tag: MainTab.detail.rawValue
+        let listNC = BaseNavigationController()
+        listNC.tabBarItem = UITabBarItem(
+            title: "Posts",
+            image: UIImage(systemName: "note.text"),
+            tag: MainTab.list.rawValue
         )
-        let detailFC = DetailFlowController(navigationController: detailNC)
-        let detailRootVC = startChildFlow(detailFC)
-        detailNC.viewControllers = [detailRootVC]
-        return detailNC
+        let listFC = ListFlowController(navigationController: listNC)
+        let listRootVC = startChildFlow(listFC)
+        listNC.viewControllers = [listRootVC]
+        return listNC
+    }
+    
+    private func setupAddTab() -> UINavigationController {
+        let addNC = BaseNavigationController()
+        addNC.tabBarItem = UITabBarItem(
+            title: "Add Post",
+            image: UIImage(systemName: "note.text.badge.plus"),
+            tag: MainTab.list.rawValue
+        )
+        let addFC = AddFlowController(navigationController: addNC)
+        let addRootVC = startChildFlow(addFC)
+        addNC.viewControllers = [addRootVC]
+        return addNC
     }
     
     func presentOnboarding() {
